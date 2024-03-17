@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Coin Flip</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div id="coin" class="heads">
-            <div class="side heads"></div>
-            <div class="side tails"></div>
+    <head>
+        <title>Coin Flip</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <div id="coin" class="heads">
+                <div class="side heads"></div>
+                <div class="side tails"></div>
+            </div>
+            <p id="status">Click to Flip</p>
+            <button onclick="flipCoin()">Flip Coin</button>
         </div>
-        <p id="status">Click to Flip</p>
-        <button onclick="flipCoin()">Flip Coin</button>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
