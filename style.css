@@ -45,22 +45,58 @@ body {
 }
 
 .tails {
+    /* Adjust as needed depending on the initial appearance */
     background: radial-gradient(circle at 65% 65%, #c5c6c7, #636466);
     color: #fff;
-    transform: rotateY(180deg);
+    transform: rotateX(180deg); /* Ensure it matches the keyframe logic */
 }
 
 .flip {
-    animation: flip 3s;
+    animation: flip 3s linear infinite; /* Using 'infinite' for continuous looping until stopped */
 }
 
 @keyframes flip {
-    from {
-        transform: rotateY(0deg);
+    0%, 100% {
+        transform: rotateX(0deg);
     }
-    to {
-        transform: rotateY(3600deg);
+    50% {
+        transform: rotateX(3600deg);  /* Fast continuous flip */
     }
+}
+
+@keyframes verticalMove {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px); /* Adjust as needed for visible effect */
+    }
+}
+
+@keyframes continuousFlip {
+    0%, 100% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(3600deg);
+    }
+}
+
+@keyframes decelerateFlip {
+    0% {
+        transform: rotateX(var(--rotation-start));
+    }
+    100% {
+        transform: rotateX(var(--rotation-end));
+    }
+}
+
+.flip-continuous {
+    animation: continuousFlip 3s linear infinite;
+}
+
+.flip-decelerate {
+    animation: decelerateFlip 2s cubic-bezier(0.32, 0.64, 0.45, 1) forwards;
 }
 
 #status {
@@ -119,4 +155,15 @@ button:hover {
 button:active {
     transform: translateY(1px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+    background: #ccc;
+    color: #666;
+    cursor: default;
+    box-shadow: none;
+}
+button:disabled:hover {
+    transform: none;
+    box-shadow: none;
 }
